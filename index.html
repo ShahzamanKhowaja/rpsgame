@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Online</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="login-screen">
+            <h1>Rock Paper Scissors</h1>
+            <input type="text" id="username" placeholder="Enter your username">
+            <button onclick="createRoom()">Create Room</button>
+            <button onclick="showJoinRoom()">Join Room</button>
+            <div id="join-room-input" style="display: none;">
+                <input type="text" id="room-code" placeholder="Enter room code">
+                <button onclick="joinRoom()">Join</button>
+            </div>
+        </div>
+
+        <div id="game-screen" style="display: none;">
+            <div class="players">
+                <div id="player1" class="player">
+                    <h2 id="player1-name"></h2>
+                    <div class="score">Score: <span id="player1-score">0</span></div>
+                </div>
+                <div id="player2" class="player">
+                    <h2 id="player2-name">Waiting...</h2>
+                    <div class="score">Score: <span id="player2-score">0</span></div>
+                </div>
+            </div>
+            
+            <div id="timer">10</div>
+            
+            <div class="choices">
+                <button class="choice" data-choice="rock">Rock</button>
+                <button class="choice" data-choice="paper">Paper</button>
+                <button class="choice" data-choice="scissors">Scissors</button>
+            </div>
+            
+            <div id="result"></div>
+            <button id="leave-btn" onclick="leaveRoom()">Leave Room</button>
+        </div>
+
+        <div id="winner-screen" style="display: none;">
+            <h1 id="winner-text"></h1>
+            <div class="confetti"></div>
+            <button onclick="playAgain()">Play Again</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-database-compat.js"></script>
+    <script src="./firebase-config.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
